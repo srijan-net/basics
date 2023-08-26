@@ -53,3 +53,5 @@ while True:
             print(i)
     if a==5:
         break
+    if a==6:
+        break
