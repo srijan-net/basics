@@ -14,13 +14,13 @@ def read_matrix_element():
     if matrix==[]:
         print("creating a matrix first")
         creat_matrix()
-    row_read=int(input("enter the row no.-->"))
-    col_read=int(input("enter col no -->"))
-    count=0
-    for row in matrix:            
-        count=count+1
-        if row_read==count:
-            print(row[col_read+1])
+    row_read=int(input("enter the row no. to read -->"))
+    col_read=int(input("enter col no to read -->"))
+    print(matrix[row_read-1][col_read-1])
+    #for row in matrix:            
+    #    row_read-=1
+    #    if row_read==count:
+    #        print(row[col_read-1])
 
 def matrix_edit():
     if matrix==[]:
@@ -30,8 +30,18 @@ def matrix_edit():
     col_edit=int(input("enter col no -->"))
     val=int(input("enter val no -->"))
     matrix[row_edit-1][col_edit-1]=val
-
-creat_matrix()
-for i in matrix:
-    print(i)
     
+while True:
+    a=int(input("enter choice from the following:\n1.create a matrix\n2.read a matrix element\n3.eddit matrix\n4.to stop\n===>"))
+    if a==1:
+        creat_matrix()
+    if a==2:
+        for i in matrix:
+            print(i)
+        read_matrix_element()
+    if a==3:
+        for i in matrix:
+            print(i)
+        matrix_edit()
+    if a==4:
+            break
