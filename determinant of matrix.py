@@ -1,28 +1,63 @@
-matrix=[[1,4],[5,10]]
-row=0
-col=0
-def creat_matrix():
-    row_num=int(input("enter the no. of rows "))
-    col_num=int(input("enter num of colnms"))
-    row=row_num
-    col=col_num
-    for i in range(1,row_num+1):    
-        rows=[]                                    # here row get resseted to ["empty"] as the 1 loop for the row complets
-        for j in range(1,col_num+1):
-            a=int(input("enter value for ==>"))
-            rows.append(a)
-        matrix.append(rows)                         #matrix is completed   
-
-
-def det2():
-    r=0
-    for i in matrix:
+matrix=[[1,4,6],[5,10,7],[4,3,8]]
+tmat=[]    #first row excluded     
+first_row=[]                                          
+c=0
+for i in matrix:
+    c+=1
+    if c==1:
         for j in i:
-            print(j)
+            first_row.append(j)
+    if c!=1:                    #finding determinant using row 1 therfore excluding row 1 
+        tmat.append(i)
+temp_matrix=tmat
+temp_matrix2=temp_matrix
 
 
 def det3():
-    print("limiting this to 2x2 and 3x3 matrix only!!")
-    temp_matrix=[]
-    # for i in matrix:
-det2()
+    t1=[]                                             #t---> temp matrix
+    for i in tmat:
+        t1.append(i[1:3])
+    val1=det2(t1)
+    
+    t3=[]
+    for i in tmat:
+        t3.append(i[0:2])
+    val3=det2(t3)
+
+
+    t2=[]
+    for i in temp_matrix2:
+        del i[1]
+    t2=temp_matrix2
+    val2=det2(t2)
+    # print(first_row)
+    det=(val1*first_row[0])+(val2*first_row[1])+(val3*first_row[2])
+    print(det)
+    
+    
+
+
+def det2(a):
+    r1_1=0   #row 1 element 1
+    r1_2=0   #row 1 element 2
+    r2_1=0
+    r2_2=0
+    count=0
+    for i in a:
+        for j in i:
+            count+=1
+            if count==1:
+                r1_1=j
+            if count==2:
+                r1_2=j
+            if count==3:
+                r2_1=j
+            if count==4:
+                r2_2=j
+    # print(r1_1,r1_2,r2_1,r2_2)            #just to check :)
+    det=(r1_1*r2_2)-(r1_2*r2_1)
+    return det
+
+det3()        
+
+

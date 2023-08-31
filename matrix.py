@@ -37,6 +37,27 @@ def matrix_edit():
     matrix[row_edit-1][col_edit-1]=val
     for i in matrix:
         print(i)
+def det2():
+    r1_1=0   #row 1 element 1
+    r1_2=0   #row 1 element 2
+    r2_1=0
+    r2_2=0
+    count=0
+    for i in matrix:
+        for j in i:
+            count+=1
+            if count==1:
+                r1_1=j
+            if count==2:
+                r1_2=j
+            if count==3:
+                r2_1=j
+            if count==4:
+                r2_2=j
+    # print(r1_1,r1_2,r2_1,r2_2)            #just to check :)
+    determi=(r1_1*r2_2)-(r1_2*r2_1)
+    print(determi)
+
 def det():
     print_matrix()    
     if row==col:
@@ -52,11 +73,7 @@ while True:
     if a==3:
         matrix_edit()
     if a==4:
-        if matrix==[]:
-            print("creating a matrix first")
-            creat_matrix()
-        for i in matrix:
-            print(i)
+        print_matrix()
     if a==5:
         break
     if a==6:
