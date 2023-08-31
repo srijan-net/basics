@@ -5,8 +5,8 @@ col=0
 def creat_matrix():
     global row
     global col
-    row_num=int(input("enter the no. of rows "))
-    col_num=int(input("enter num of colnms"))
+    row_num=int(input("enter the no. of rows ->"))
+    col_num=int(input("enter num of colnms ->"))
     row=row_num
     col=col_num
     for i in range(1,row_num+1):    
@@ -44,7 +44,6 @@ def matrix_edit():
         print(i)
 
 def det2(a):
-    print_matrix()
     r1_1=0   #row 1 element 1
     r1_2=0   #row 1 element 2
     r2_1=0
@@ -96,11 +95,11 @@ def det3():
     t2=temp_matrix2
     val2=det2(t2)
     # print(first_row)
-    det=(val1*first_row[0])+(val2*first_row[1])+(val3*first_row[2])
-    print(det)
+    det=(val1*first_row[0])-(val2*first_row[1])+(val3*first_row[2])
+    return det
 
 while True:
-    a=int(input("enter choice from the following:\n1.create a matrix\n2.read a matrix element\n3.eddit matrix\n4.to read entire matrix\n5.to find determinant [only 2x2/3x3] \n6.to stop\n===> "))
+    a=int(input("enter choice from the following:\n1.create a matrix\n2.read a matrix element\n3.eddit matrix\n4.to read entire matrix\n5.to find determinant [only 2x2/3x3] \n6.to creat new matrix\n7.to stop\n===> "))
     if a==1:
         creat_matrix()
     if a==2:
@@ -111,14 +110,15 @@ while True:
         print_matrix()
     if a==5:
         print_matrix()
-        print(row,col)
         if row==col:
-            print("hui")
             if row==2:
                 print(det2(matrix))
             if row==3:
-                det3()
+                print(det3())
         else:
             print("bruhh")            
     if a==6:
+        matrix=[]
+        creat_matrix()
+    if a==7:
         break

@@ -57,7 +57,7 @@ def det3():
     t2=temp_matrix2
     val2=det2(t2)
     # print(first_row)
-    det=(val1*first_row[0])+(val2*first_row[1])+(val3*first_row[2])
+    det=(val1*first_row[0])-(val2*first_row[1])+(val3*first_row[2])
     print(det)
 det3()
     
