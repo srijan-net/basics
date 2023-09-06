@@ -1,10 +1,5 @@
-# l1=[1,4,6,2,1]
-l2=[6,2,1]
-
-
-count=0
-print(l2[2])
-
+from matrix import *
+creat_matrix()
 
 
 

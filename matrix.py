@@ -1,7 +1,7 @@
 matrix=[]
 row=0
 col=0
-
+transpose=[]
 def creat_matrix():
     global row
     global col
@@ -16,7 +16,6 @@ def creat_matrix():
             rows.append(a)
         matrix.append(rows)                         #matrix is completed  
     
-
 def print_matrix():
     if matrix==[]:
         print("creat a matrix first")
@@ -75,8 +74,8 @@ def det3():
                 first_row.append(j)
         if c!=1:                    #finding determinant using row 1 therfore excluding row 1 
             tmat.append(i)
-    temp_matrix=tmat
-    temp_matrix2=temp_matrix
+    # temp_matrix=tmat
+    # temp_matrix2=temp_matrix
 
 
     t1=[]                                             #t---> temp matrix
@@ -90,24 +89,54 @@ def det3():
     val3=det2(t3)
 
     t2=[]
-    for i in temp_matrix2:
+    for i in tmat:
         del i[1]
-    t2=temp_matrix2
+    t2=tmat
     val2=det2(t2)
     # print(first_row)
     det=(val1*first_row[0])-(val2*first_row[1])+(val3*first_row[2])
     return det
 
+def trans():
+    if row==col:   
+        c=0
+        for x in range(row):
+            row_t=[]
+            for i in matrix:
+                row_t.append(i[c])
+            transpose.append(row_t)
+            c+=1
+    if col>row:
+        d=col-row
+        print(d)
+        c=0
+        for x in range(row+d):
+            row_t=[]
+            for i in matrix:
+                row_t.append(i[c])
+            transpose.append(row_t)
+            c+=1
+    if row>col:
+        d=row-col
+        c=0
+        for x in range(row-d):
+            row_t=[]
+            for i in matrix:
+                row_t.append(i[c])
+            transpose.append(row_t)
+            c+=1
+
+
 while True:
-    a=int(input("enter choice from the following:\n1.create a matrix\n2.read a matrix element\n3.eddit matrix\n4.to read entire matrix\n5.to find determinant [only 2x2/3x3] \n6.to creat new matrix\n7.to stop\n===> "))
+    a=int(input("enter choice from the following:\n1.create a matrix\n2.to read entire matrix\n3.eddit matrix\n4.read a matrix element \n5.to find determinant [only 2x2/3x3] \n6.to creat new matrix\n7.inverse of matrix only for 2x2/3x3\n8.transpose of matrix[any]\n9.to stop\n===> "))
     if a==1:
         creat_matrix()
     if a==2:
-        read_matrix_element()
+        print_matrix()
     if a==3:
         matrix_edit()
     if a==4:
-        print_matrix()
+        read_matrix_element()
     if a==5:
         print_matrix()
         if row==col:
@@ -116,9 +145,16 @@ while True:
             if row==3:
                 print(det3())
         else:
-            print("bruhh")            
+            print("bruhh\nenter write optionsss")            
     if a==6:
         matrix=[]
         creat_matrix()
     if a==7:
-        break
+        print_matrix()
+
+
+    if a==8:
+        print_matrix()
+        trans()
+        for i in transpose:
+            print(i)
