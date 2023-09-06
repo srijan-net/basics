@@ -1,6 +1,6 @@
 matrix=[[1,2],[3,1],[5,1]]
 transpose=[]
-row=len(matrix)
+row=len(matrix)         
 for i in matrix:
     col=len(i)
     break
