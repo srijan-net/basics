@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdbool.h>
 int main()
 {
     int n,final,counter;
@@ -6,18 +7,13 @@ int main()
     scanf("%d",&n);
     final=n/3;
     counter=1;
-    while (1)
-    {
-        
-        if(counter<=final)
-        {
+    while (true){
+        if(counter<=final){
             printf("\n%d",counter*3);
             counter+=1;
         }
         else
-        {
             break;
-        }
     }
     return 0;
 
