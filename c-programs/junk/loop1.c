@@ -8,7 +8,7 @@ int main()
     final=n/3;
     counter=1;
     while (true){
-        if(counter<=final){
+        if(counter<+final){
             printf("\n%d",counter*3);
             counter+=1;
         }
