@@ -9,7 +9,7 @@ int main()
     {
         for(int j=1;i>=j;j++)
         {
-            printf("%d",j);
+            printf(" %d",j);
         }
         c++;               // counter for white spaces 
         printf("\n");

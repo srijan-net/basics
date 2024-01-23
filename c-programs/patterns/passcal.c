@@ -1,5 +1,5 @@
 #include<stdio.h>
-int fact()
+int fact();
 int main()
 {
     int n;
